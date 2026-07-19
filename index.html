@@ -1,143 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUTUREIX Demo Websites</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Inter,Arial,sans-serif;
-        }
+<title>FUTUREIX Demo Websites</title>
 
-        body{
-            background:linear-gradient(135deg,#0f172a,#1e293b);
-            color:white;
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:40px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container{
-            width:100%;
-            max-width:1100px;
-        }
+<style>
 
-        h1{
-            text-align:center;
-            font-size:3rem;
-            margin-bottom:10px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
 
-        p{
-            text-align:center;
-            color:#cbd5e1;
-            margin-bottom:50px;
-            font-size:18px;
-        }
+body{
+background:linear-gradient(135deg,#0F172A,#1E293B,#111827);
+min-height:100vh;
+color:white;
+padding:60px 25px;
+}
 
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:25px;
-        }
+.container{
+max-width:1300px;
+margin:auto;
+}
 
-        .card{
-            background:white;
-            color:#111;
-            border-radius:18px;
-            padding:30px;
-            transition:.3s;
-            box-shadow:0 15px 35px rgba(0,0,0,.2);
-        }
+header{
+text-align:center;
+margin-bottom:60px;
+}
 
-        .card:hover{
-            transform:translateY(-8px);
-        }
+header h1{
+font-size:3.4rem;
+margin-bottom:15px;
+font-weight:700;
+}
 
-        .card h2{
-            margin-bottom:12px;
-        }
+header p{
+font-size:18px;
+color:#CBD5E1;
+max-width:700px;
+margin:auto;
+line-height:1.7;
+}
 
-        .card p{
-            color:#555;
-            text-align:left;
-            margin-bottom:25px;
-            line-height:1.6;
-        }
+.grid{
 
-        a{
-            display:inline-block;
-            text-decoration:none;
-            background:#111827;
-            color:white;
-            padding:12px 24px;
-            border-radius:10px;
-            transition:.3s;
-        }
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
 
-        a:hover{
-            background:#2563eb;
-        }
+}
 
-        footer{
-            margin-top:60px;
-            text-align:center;
-            color:#94a3b8;
-        }
-    </style>
+.card{
+
+background:white;
+color:#111827;
+border-radius:22px;
+padding:30px;
+transition:.35s;
+box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.card:hover{
+
+transform:translateY(-12px);
+
+}
+
+.icon{
+
+font-size:58px;
+margin-bottom:18px;
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+font-size:28px;
+
+}
+
+.card p{
+
+color:#64748B;
+line-height:1.8;
+margin-bottom:30px;
+
+}
+
+.btn{
+
+display:inline-block;
+background:#111827;
+color:white;
+text-decoration:none;
+padding:14px 28px;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#2563EB;
+
+}
+
+footer{
+
+margin-top:70px;
+text-align:center;
+color:#94A3B8;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<header>
+
 <h1>🚀 FUTUREIX Demo Websites</h1>
 
 <p>
-Premium Website Collection by FUTUREIX
+
+Explore premium website demos designed and developed by FUTUREIX.
+Each project showcases modern UI/UX, responsive layouts, smooth animations,
+and production-ready design.
+
 </p>
+
+</header>
 
 <div class="grid">
 
 <div class="card">
-<h2>💄 Cosmetics Website</h2>
+
+<div class="icon">💄</div>
+
+<h2>Luxury Cosmetics</h2>
 
 <p>
-Luxury beauty and cosmetics ecommerce website with premium UI, animations,
-responsive design and modern shopping experience.
+
+Premium cosmetics and beauty ecommerce website featuring elegant UI,
+high-converting layouts, luxury animations, interactive product pages,
+and a modern shopping experience.
+
 </p>
 
-<a href="./COSMETICS/">Open Website</a>
+<a href="./COSMETICS/" class="btn">
 
-</div>
+View Demo →
 
-<!-- Add more demo websites like this -->
+</a>
 
-<!--
-<div class="card">
-<h2>🏥 Hospital Website</h2>
-<p>Premium healthcare website.</p>
-<a href="./HOSPITAL/">Open Website</a>
 </div>
 
 <div class="card">
-<h2>🍕 Restaurant Website</h2>
-<p>Modern restaurant landing page.</p>
-<a href="./RESTAURANT/">Open Website</a>
+
+<div class="icon">🏡</div>
+
+<h2>Luxury Real Estate</h2>
+
+<p>
+
+A modern luxury real estate platform with advanced property search,
+interactive maps, virtual property tours, premium animations,
+and lead-generation focused landing pages.
+
+</p>
+
+<a href="./REAL-ESTATE/" class="btn">
+
+View Demo →
+
+</a>
+
 </div>
--->
+
+<div class="card">
+
+<div class="icon">🥐</div>
+
+<h2>Premium Bakery</h2>
+
+<p>
+
+A warm artisan bakery & café website with online ordering,
+cake customization, delightful animations,
+seasonal collections, and handcrafted premium UI.
+
+</p>
+
+<a href="./BAKERY/" class="btn">
+
+View Demo →
+
+</a>
+
+</div>
 
 </div>
 
 <footer>
 
-© 2026 FUTUREIX • All Rights Reserved
+<p>
+
+© 2026 FUTUREIX • Premium Website Showcase
+
+</p>
 
 </footer>
 
