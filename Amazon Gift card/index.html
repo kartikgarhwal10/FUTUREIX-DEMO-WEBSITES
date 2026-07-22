@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon Gift Cards — Discounted, Delivered Fast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0F14;
+    --ink-2:#12181f;
+    --paper:#F5F1E8;
+    --paper-dim:#e9e3d4;
+    --orange:#FF9900;
+    --orange-deep:#e28600;
+    --green:#1E824C;
+    --green-bright:#25a05c;
+    --stone:#8A8578;
+    --stone-dark:#5a5648;
+    --line: rgba(245,241,232,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{ font-family:'Fraunces', serif; }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,15,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px; max-width:1120px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; letter-spacing:-0.01em;}
+  .brand .dot{ width:9px; height:9px; border-radius:50%; background:var(--orange); box-shadow:0 0 12px var(--orange);}
+  .nav-links{ display:flex; gap:32px; font-size:14px; color:var(--stone); }
+  .nav-links a:hover{ color:var(--paper); }
+  .nav-cta{
+    background:var(--green); color:#fff; padding:10px 18px; border-radius:999px;
+    font-size:14px; font-weight:600; text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background:var(--green-bright); transform:translateY(-1px); }
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:90px 24px 70px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:0; opacity:0.5;
+    background:
+      radial-gradient(600px 400px at 15% 20%, rgba(255,153,0,0.10), transparent 60%),
+      radial-gradient(500px 350px at 85% 10%, rgba(30,130,76,0.10), transparent 60%);
+  }
+  .hero-inner{
+    position:relative; z-index:1;
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-inner{ grid-template-columns:1fr; } }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--orange); background:rgba(255,153,0,0.08);
+    border:1px solid rgba(255,153,0,0.25);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(34px, 5vw, 56px);
+    font-weight:600; letter-spacing:-0.02em; line-height:1.06;
+    margin-bottom:20px;
+  }
+  h1 em{ font-style:italic; color:var(--orange); }
+  .hero-sub{
+    font-size:17px; color:var(--stone); max-width:480px; margin-bottom:32px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  .btn-primary{
+    background:var(--orange); color:var(--ink); font-weight:700; font-size:15px;
+    padding:15px 26px; border-radius:10px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    box-shadow:0 0 0 rgba(255,153,0,0);
+    transition:box-shadow .25s ease, transform .2s ease, background .2s ease;
+  }
+  .btn-primary:hover{ box-shadow:0 8px 30px rgba(255,153,0,0.35); transform:translateY(-2px); background:var(--orange-deep); }
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--paper); font-weight:600; font-size:15px;
+    padding:15px 26px; border-radius:10px; text-decoration:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .btn-ghost:hover{ border-color:rgba(245,241,232,0.4); background:rgba(245,241,232,0.04); }
+
+  .hero-note{ margin-top:22px; font-size:13px; color:var(--stone-dark); display:flex; align-items:center; gap:8px;}
+
+  /* Receipt / ticket visual */
+  .ticket{
+    background:var(--paper); color:var(--ink); border-radius:16px;
+    padding:28px 26px; position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,0.45);
+    transform:rotate(-2.5deg);
+    animation:floaty 6s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%,100%{ transform:rotate(-2.5deg) translateY(0); }
+    50%{ transform:rotate(-2.5deg) translateY(-10px); }
+  }
+  .ticket::before, .ticket::after{
+    content:""; position:absolute; width:26px; height:26px; background:var(--ink);
+    border-radius:50%; top:50%; transform:translateY(-50%);
+  }
+  .ticket::before{ left:-13px; }
+  .ticket::after{ right:-13px; }
+  .ticket-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px;}
+  .ticket-label{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--stone-dark); font-weight:700;}
+  .ticket-brand{ font-family:'Fraunces',serif; font-weight:600; font-size:15px; }
+  .ticket-amount{ font-family:'Fraunces',serif; font-size:46px; font-weight:600; letter-spacing:-0.02em; margin:6px 0 2px;}
+  .ticket-discount{ display:inline-block; background:var(--green); color:#fff; font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; margin-bottom:18px;}
+  .perf{ border-top:2px dashed var(--stone); margin:16px 0; }
+  .ticket-row{ display:flex; justify-content:space-between; font-size:13px; color:var(--stone-dark); margin-bottom:6px;}
+  .ticket-row b{ color:var(--ink); }
+  .ticket-code{
+    font-family:'Fraunces',serif; letter-spacing:0.15em; font-size:14px; font-weight:600;
+    background:var(--paper-dim); padding:8px 10px; border-radius:6px; text-align:center; margin-top:14px;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    border-bottom:1px solid var(--line);
+    padding:36px 24px;
+  }
+  .trust-grid{
+    max-width:1120px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  @media (max-width:760px){ .trust-grid{ grid-template-columns:repeat(2,1fr); } }
+  .trust-item{ display:flex; align-items:center; gap:12px; font-size:13.5px; color:var(--stone); }
+  .trust-item .ic{ color:var(--orange); flex-shrink:0; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding:88px 24px; }
+  .sec-head{ max-width:640px; margin-bottom:52px; }
+  .sec-eyebrow{ font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); margin-bottom:12px; }
+  .sec-title{ font-family:'Fraunces',serif; font-size:clamp(26px,3.4vw,38px); font-weight:600; letter-spacing:-0.01em; margin-bottom:14px;}
+  .sec-sub{ color:var(--stone); font-size:15.5px; }
+
+  /* ---------- DENOMINATIONS (price list) ---------- */
+  .price-section{ border-top:1px solid var(--line); }
+  .price-list{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  @media (max-width:860px){ .price-list{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .price-list{ grid-template-columns:1fr; } }
+
+  .price-card{
+    background:var(--paper); color:var(--ink); border-radius:14px; padding:26px 22px;
+    position:relative; overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .price-card:hover{ transform:translateY(-6px); box-shadow:0 20px 45px rgba(0,0,0,0.35); }
+  .price-card::after{
+    content:""; position:absolute; left:0; right:0; bottom:64px; height:0;
+    border-top:2px dashed var(--stone);
+  }
+  .pc-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+  .pc-face{ font-size:12px; color:var(--stone-dark); font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .pc-badge{ background:var(--green); color:#fff; font-size:11.5px; font-weight:700; padding:4px 9px; border-radius:6px; }
+  .pc-amount{ font-family:'Fraunces',serif; font-size:34px; font-weight:600; margin-bottom:4px; }
+  .pc-old{ color:var(--stone); text-decoration:line-through; font-size:14px; margin-bottom:22px; display:block; }
+  .pc-buy{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--ink); color:var(--paper); font-weight:700; font-size:14px;
+    padding:12px; border-radius:9px; text-decoration:none; margin-top:8px;
+    transition:background .2s ease;
+  }
+  .pc-buy:hover{ background:#000; }
+
+  .price-note{
+    margin-top:26px; font-size:13.5px; color:var(--stone);
+    display:flex; gap:10px; align-items:flex-start;
+    background:rgba(245,241,232,0.04); border:1px solid var(--line);
+    padding:16px 18px; border-radius:10px;
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{ border-top:1px solid var(--line); }
+  .step-row{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  @media (max-width:820px){ .step-row{ grid-template-columns:1fr; } }
+  .step{
+    border:1px solid var(--line); border-radius:14px; padding:28px 24px;
+    background:rgba(245,241,232,0.02);
+  }
+  .step-num{
+    font-family:'Fraunces',serif; font-size:14px; color:var(--orange); font-weight:700;
+    border:1px solid rgba(255,153,0,0.3); width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .step h3{ font-size:17px; font-weight:700; margin-bottom:8px; }
+  .step p{ font-size:14px; color:var(--stone); }
+
+  /* ---------- WHY / FEATURES ---------- */
+  .why{ border-top:1px solid var(--line); }
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:820px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-card{
+    border:1px solid var(--line); border-radius:14px; padding:24px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .why-card:hover{ border-color:rgba(255,153,0,0.35); transform:translateY(-4px); }
+  .why-ic{ font-size:22px; margin-bottom:14px; color:var(--orange); }
+  .why-card h4{ font-size:15px; font-weight:700; margin-bottom:6px; }
+  .why-card p{ font-size:13.5px; color:var(--stone); }
+
+  /* ---------- FAQ ---------- */
+  .faq{ border-top:1px solid var(--line); }
+  .faq-list{ max-width:760px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; color:var(--paper);
+    font-family:inherit; font-size:16px; font-weight:600; padding:20px 4px;
+    display:flex; justify-content:space-between; align-items:center; cursor:pointer;
+  }
+  .faq-q .plus{ color:var(--orange); font-size:20px; transition:transform .25s ease; flex-shrink:0; margin-left:16px;}
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+    font-size:14.5px; color:var(--stone); padding:0 4px;
+  }
+  .faq-item.open .faq-a{ max-height:220px; padding-bottom:20px; }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    border-top:1px solid var(--line);
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .final-cta::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(500px 300px at 50% 0%, rgba(255,153,0,0.12), transparent 65%);
+  }
+  .final-inner{ position:relative; z-index:1; max-width:560px; margin:0 auto; }
+  .final-cta h2{ font-family:'Fraunces',serif; font-size:clamp(28px,4vw,40px); font-weight:600; margin-bottom:16px; }
+  .final-cta p{ color:var(--stone); margin-bottom:32px; font-size:15.5px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ border-top:1px solid var(--line); padding:44px 24px 30px; }
+  .foot-inner{
+    max-width:1120px; margin:0 auto;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    font-size:13px; color:var(--stone-dark);
+  }
+  .foot-links{ display:flex; gap:22px; flex-wrap:wrap; }
+  .foot-links a{ text-decoration:none; color:var(--stone-dark); }
+  .foot-links a:hover{ color:var(--paper); }
+  .disclaimer{
+    max-width:1120px; margin:24px auto 0; padding-top:24px; border-top:1px solid var(--line);
+    font-size:12px; color:var(--stone-dark); line-height:1.7;
+  }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand"><span class="dot"></span>CardBazaar</div>
+    <div class="nav-links">
+      <a href="#prices">Prices</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#prices">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4C7.6 4 4 7.6 4 12.05c0 1.42.37 2.8 1.08 4.02L4 20l4.05-1.06a8.03 8.03 0 0 0 3.99 1.02h.01c4.45 0 8.05-3.6 8.05-8.05 0-2.15-.84-4.17-2.5-5.6zm-5.55 12.4h-.01a6.7 6.7 0 0 1-3.4-.93l-.24-.14-2.4.63.64-2.34-.16-.24a6.68 6.68 0 0 1-1.03-3.55c0-3.7 3.01-6.7 6.7-6.7 1.79 0 3.47.7 4.74 1.96a6.65 6.65 0 0 1 1.96 4.74c0 3.7-3.01 6.7-6.8 6.57z"/></svg>
+      Buy on WhatsApp
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">● Live pricing · Updated today</div>
+      <h1>Amazon gift cards,<br><em>discounted</em>, on WhatsApp.</h1>
+      <p class="hero-sub">Pick a denomination, pay by UPI, get your code by WhatsApp or email — usually within the hour. No sign-up, no survey, no strings.</p>
+      <div class="hero-actions">
+        <a href="#prices" class="btn-primary">See prices →</a>
+        <a href="#how" class="btn-ghost">How it works</a>
+      </div>
+      <div class="hero-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        You pay real ₹ by UPI. You receive a real, redeemable gift card code.
+      </div>
+    </div>
+    <div class="ticket">
+      <div class="ticket-top">
+        <div>
+          <div class="ticket-label">Gift card</div>
+          <div class="ticket-brand">Amazon.in</div>
+        </div>
+        <div class="ticket-label">#CB-1042</div>
+      </div>
+      <div class="ticket-amount">₹1,000</div>
+      <div class="ticket-discount">8% off — pay ₹920</div>
+      <div class="perf"></div>
+      <div class="ticket-row"><span>Payment</span><b>UPI</b></div>
+      <div class="ticket-row"><span>Delivery</span><b>WhatsApp + Email</b></div>
+      <div class="ticket-row"><span>Time</span><b>~30–60 min</b></div>
+      <div class="ticket-code">SAMPLE · NOT VALID</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-grid">
+    <div class="trust-item"><span class="ic">✔</span>Real codes, verified before sending</div>
+    <div class="trust-item"><span class="ic">✔</span>UPI payment, no card details shared</div>
+    <div class="trust-item"><span class="ic">✔</span>Delivered on WhatsApp & email</div>
+    <div class="trust-item"><span class="ic">✔</span>Replies within the hour, most days</div>
+  </div>
+</div>
+
+<section class="price-section" id="prices">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Pricing</div>
+      <h2 class="sec-title">Pick a denomination</h2>
+      <p class="sec-sub">Flat discount on every card, no matter the amount. Prices below are per card.</p>
+    </div>
+    <div class="price-list">
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">8% off</span></div>
+        <div class="pc-amount">₹500</div>
+        <span class="pc-old">You pay ₹460</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20%E2%82%B9500%20Amazon%20gift%20card" class="pc-buy">Buy on WhatsApp →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">8% off</span></div>
+        <div class="pc-amount">₹1,000</div>
+        <span class="pc-old">You pay ₹920</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20%E2%82%B91000%20Amazon%20gift%20card" class="pc-buy">Buy on WhatsApp →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">10% off</span></div>
+        <div class="pc-amount">₹2,000</div>
+        <span class="pc-old">You pay ₹1,800</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20%E2%82%B92000%20Amazon%20gift%20card" class="pc-buy">Buy on WhatsApp →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">10% off</span></div>
+        <div class="pc-amount">₹5,000</div>
+        <span class="pc-old">You pay ₹4,500</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20%E2%82%B95000%20Amazon%20gift%20card" class="pc-buy">Buy on WhatsApp →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">10% off</span></div>
+        <div class="pc-amount">₹10,000</div>
+        <span class="pc-old">You pay ₹9,000</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20%E2%82%B910000%20Amazon%20gift%20card" class="pc-buy">Buy on WhatsApp →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-top"><span class="pc-face">Amazon.in</span><span class="pc-badge">Custom</span></div>
+        <div class="pc-amount">Other amount</div>
+        <span class="pc-old">Tell us on WhatsApp</span>
+        <a href="https://wa.me/910000000000?text=Hi%2C%20I%27d%20like%20to%20buy%20a%20custom-amount%20Amazon%20gift%20card" class="pc-buy">Ask on WhatsApp →</a>
+      </div>
+
+    </div>
+
+    <div class="price-note reveal">
+      <span>ⓘ</span>
+      <span>Prices shown are indicative and confirmed at the time of order on WhatsApp — availability and exact rate can vary slightly with card stock. This page is run by an independent reseller and is not operated, sponsored, or endorsed by Amazon.</span>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Process</div>
+      <h2 class="sec-title">How buying works</h2>
+      <p class="sec-sub">Three steps, no account needed.</p>
+    </div>
+    <div class="step-row">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Pick your amount</h3>
+        <p>Tap "Buy on WhatsApp" next to the denomination you want. It opens a chat with your order pre-filled.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Pay by UPI</h3>
+        <p>We'll send you a UPI ID or QR for the discounted amount. Pay directly — no card or bank details go through this site.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Get your code</h3>
+        <p>Once payment is confirmed, your gift card code is sent to your WhatsApp and email — typically within 30–60 minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Why buy here</div>
+      <h2 class="sec-title">Straightforward, and it stays that way</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-ic">⚡</div><h4>Fast turnaround</h4><p>Most orders delivered within an hour during the day.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🔒</div><h4>No card details shared</h4><p>You pay by UPI directly — nothing stored on this site.</p></div>
+      <div class="why-card reveal"><div class="why-ic">💬</div><h4>Real person on WhatsApp</h4><p>Order and support both happen in one chat thread.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🧾</div><h4>Clear pricing</h4><p>The discount you see is the discount you pay — no hidden steps.</p></div>
+      <div class="why-card reveal"><div class="why-ic">📩</div><h4>Two delivery copies</h4><p>Code sent to WhatsApp and email so you always have a backup.</p></div>
+      <div class="why-card reveal"><div class="why-ic">🔁</div><h4>Repeat buyer friendly</h4><p>Regulars can just message the amount — no need to browse again.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">FAQ</div>
+      <h2 class="sec-title">Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">Is the discount really guaranteed? <span class="plus">+</span></button>
+        <div class="faq-a">Yes — the % shown next to each denomination is what you pay, confirmed again when you message on WhatsApp before you send any payment.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Are you affiliated with Amazon? <span class="plus">+</span></button>
+        <div class="faq-a">No. This is an independent reseller. We buy and resell genuine Amazon.in gift cards at a discount; we are not Amazon and are not endorsed by them.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How do I pay? <span class="plus">+</span></button>
+        <div class="faq-a">By UPI, directly to the ID or QR code we share with you on WhatsApp after you confirm your order. We never ask for OTPs, card numbers, or bank logins.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How long does delivery take? <span class="plus">+</span></button>
+        <div class="faq-a">Usually 30–60 minutes after payment is confirmed, sent to your WhatsApp and email as backup. It can take longer late at night.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">What if the code doesn't work? <span class="plus">+</span></button>
+        <div class="faq-a">Message us on the same WhatsApp thread immediately — every code is checked before sending, and we'll replace it if there's a genuine issue.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap final-inner reveal">
+    <h2>Ready to order?</h2>
+    <p>Pick your amount and message us — most orders are delivered the same hour.</p>
+    <a href="#prices" class="btn-primary">See prices →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="brand" style="font-size:15px;"><span class="dot"></span>CardBazaar</div>
+    <div class="foot-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Refund Policy</a>
+      <a href="https://wa.me/910000000000">Contact</a>
+    </div>
+  </div>
+  <div class="disclaimer wrap">
+    CardBazaar is an independent gift card reseller and is not owned, operated, or endorsed by Amazon or its affiliates. "Amazon" and related marks belong to their respective owners. All gift cards sold are genuine and redeemable per Amazon's own gift card terms. Prices update periodically; the rate confirmed on WhatsApp at time of order is final. © 2026 CardBazaar.
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.12 });
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
