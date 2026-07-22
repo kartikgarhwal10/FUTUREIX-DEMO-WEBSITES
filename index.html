@@ -60,10 +60,13 @@ border-radius:22px;
 padding:30px;
 transition:.35s;
 box-shadow:0 20px 45px rgba(0,0,0,.25);
+display:flex;
+flex-direction:column;
 }
 
 .card:hover{
 transform:translateY(-12px);
+box-shadow:0 30px 60px rgba(37,99,235,.25);
 }
 
 .icon{
@@ -80,6 +83,7 @@ font-size:28px;
 color:#64748B;
 line-height:1.8;
 margin-bottom:30px;
+flex:1;
 }
 
 .btn{
@@ -101,6 +105,22 @@ footer{
 margin-top:70px;
 text-align:center;
 color:#94A3B8;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:2.5rem;
+}
+
+header p{
+font-size:16px;
+}
+
+.card{
+padding:24px;
+}
+
 }
 </style>
 
@@ -179,6 +199,26 @@ seasonal collections, and handcrafted premium UI.
 </p>
 
 <a href="./BAKERY/" class="btn">
+View Demo →
+</a>
+
+</div>
+
+<!-- Medical Landing Page -->
+
+<div class="card">
+
+<div class="icon">🏥</div>
+
+<h2>Medical Landing Page</h2>
+
+<p>
+A premium healthcare website designed for doctors, pharmacies, and diagnostic labs featuring online appointment booking,
+medicine ordering, home sample collection, lab test scheduling,
+glassmorphism UI, premium animations, and a seamless patient experience.
+</p>
+
+<a href="./MEDICAL%20LANDING%20PAGE%201/" class="btn">
 View Demo →
 </a>
 
